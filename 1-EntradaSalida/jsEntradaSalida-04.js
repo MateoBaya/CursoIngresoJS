@@ -4,7 +4,7 @@ y lo muestro por 'ID' al presionar el botón 'mostrar'
 */
 
 function mostrar()
-{	let promptNombre 
+{	let promptNombre;
 	promptNombre = prompt("¿Cuál es tu nombre?")
 	let Input;
 	Input = document.getElementById("txtIdNombre")
