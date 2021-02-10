@@ -8,7 +8,62 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
+function CalcularPrecio() 
 {
- 	
+    const PRECIO = 35;
+    let cantidad;
+    let precioDescuento;
+    let empresa;
+    let impuesto;
+    let precioFinal;
+    cantidad = parseInt(document.getElementById("txtIdCantidad").value);
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+    empresa = document.getElementById("Marca").value
+    if (cantidad >= 6) {
+        precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.5
+    }
+    switch (cantidad){
+        case 5:
+            switch(empresa){
+                case "ArgentinaLuz":
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.4
+                    break;
+                default:
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.3
+            }
+            break;
+        case 4:
+            switch(empresa){
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.25
+                    break;
+                default:
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.2
+            }
+            break;
+        case 3:
+            switch(empresa){
+                case "ArgentinaLuz":
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.15
+                    break;
+                case "FelipeLamparas":
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.1
+                    break;
+                default:
+                    precioDescuento.value = PRECIO * cantidad - (PRECIO * cantidad) * 0.05
+            }
+            break;
+        case 2:
+        case 1:
+            precioDescuento.value = PRECIO * cantidad
+            alert("No tiene descuento")
+            break;
+    };
+    if (precioDescuento.value > 120){
+        impuesto = (PRECIO * cantidad)*0.10;
+        precioFinal = parseInt(precioDescuento.value) + impuesto;
+        alert(`Usted pago ${impuesto} de II.BB. Por ende pagó un total de ${precioFinal}`);
+    }    
 }
+                
