@@ -9,14 +9,14 @@ let numeroIngresado;
 let TxtMax;
 let TxtMin;
 let seguir;
-let placeHolder;
+let flag;
 TxtMax = document.getElementById("txtIdMaximo");
 TxtMin = document.getElementById("txtIdMinimo");
-placeHolder = 0;
+flag = 0;
 	do{
 		numeroIngresado = parseInt(prompt("Escriba los números a analizar"));
-		if (placeHolder == 0){
-			placeHolder++;
+		if (flag == 0){
+			flag++;
 			max = numeroIngresado;
 			min = numeroIngresado;
 		};
